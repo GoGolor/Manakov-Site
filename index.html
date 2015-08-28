@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manakov Site</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-66705383-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <!--Bootstrap js CDN-->
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+        <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full&lazy=true"></script>
+        <script src="js/index.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MN6NK4"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MN6NK4');</script>
+        <!-- End Google Tag Manager -->
+        <header>
+            <div class="container wrapper">
+                <img class="logo" src="img/logo.png" alt="logo">
+                <div class="input-group searchform">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Go</button>
+                    </span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </header>
+        <div class="container wrapper">
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#!/about">About us</a></li>
+                    <li><a href="#!/projects">Projects</a></li>
+                    <li><a href="#!/map">Map</a></li>
+                </ul>
+            </nav>
+            <div id="main" class="main"></div>
+        </div>
+        
+        
+        <script type="text/template" id="projects">
+                <div class="heading">
+                    <h1>Our projects</h1>
+                </div>
+                <div class="row">
+                    <aside class="col-md-7">
+                        <div id="accordion" class="menu">
+                            <h3>LOREM IPSUM</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                            <h3>DONEC TINCIDUNT LAOREET</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                            <h3>VESTIBULUM ELIT</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                            <h3>ETIAM PHARETRA</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                            <h3>PHASELLUS PLACERAT</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                            <h3>CRAS ET NISI VITAE ODIO</h3>
+                            <div>
+                                <ul class="submenu list-group">
+                                    <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                    <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                    <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                    <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Our officies</h3>
+                            </div>
+                            <div class="panel-body">
+                                <img src="img/our%20officies.png" alt="Our officies">
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-md-17">
+                        <section class="section-lg">
+                            <div class="header">
+                                <h2>Lorem ipsum submenu 2</h2>
+                            </div>
+                            <article>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non neque ac sem accumsan rhoncus ut ut turpis. In hac habitasse platea dictumst. Proin eget nisi erat, et feugiat arcu. Duis semper porttitor lectus, ac pharetra erat imperdiet nec. Morbi interdum felis nulla. Aenean eros orci, pellentesque sed egestas vitae, auctor aliquam nisi. Nulla nec libero eget sem rutrum iaculis. Quisque in enim velit, at dignissim est. Nulla ullamcorper, dolor ac pellentesque placerat, justo tellus gravida erat, vel porttitor libero erat condimentum metus. Donec sodales aliquam orci id suscipit. Proin sed risus sit amet massa ultrices laoreet quis a erat. Aliquam et metus id erat vulputate egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img class="thumbnail" src="img/screenshot.png" alt="screenshot">
+                                            <p>Screenshot 1</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img class="thumbnail" src="img/screenshot.png" alt="screenshot">
+                                            <p>Screenshot 2</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img class="thumbnail" src="img/screenshot.png" alt="screenshot">
+                                            <p>Screenshot 3</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img class="thumbnail" src="img/screenshot.png" alt="screenshot">
+                                            <p>Screenshot 4</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                        <section class="section-lg">
+                            <div class="header">
+                                <h2>Technology</h2>
+                            </div>
+                            <article>
+                                <p>Donec vel orci purus, ut ornare orci. Aenean rutrum pellentesque quam. Quisque gravida adipiscing augue, eget commodo augue egestas varius. Integer volutpat, tellus porta tincidunt sodales, lacus est tempus odio, fringilla blandit tortor lectus ut sem. Pellentesque nec sem lacus, sit amet consequat neque. Etiam varius urna quis arcu cursus in consectetur dui tincidunt. Quisque arcu orci, lacinia eget pretium vel, iaculis pellentesque nibh. Etiam cursus lacus eget neque viverra vestibulum. Aliquam erat volutpat. Duis pulvinar tellus ut urna facilisis mollis. Maecenas ac pharetra dui. Pellentesque neque ante, luctus eget congue eget, rhoncus vel mauris. Duis nisi magna, aliquet a convallis non, venenatis at nisl. Nunc at quam eu magna malesuada dignissim. Duis bibendum iaculis felis, eu venenatis risus sodales non. In ligula mi, faucibus eu tristique sed, vulputate rutrum dolor.</p>
+                            </article>
+                        </section>
+                        <section class="section-lg">
+                            <div class="header">
+                                <h2>Related projects</h2>
+                            </div>
+                            <article>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="image-sm">
+                                            <img class="thumbnail" src="img/project.png">
+                                            <p>Related project</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img class="thumbnail" src="img/project.png">
+                                            <p>Related project</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img class="thumbnail" src="img/project.png">
+                                            <p>Related project</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img class="thumbnail" src="img/project.png">
+                                            <p>Related project</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img class="thumbnail" src="img/project.png">
+                                            <p>Related project</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+                </div>
+            </script>
+        <script type="text/template" id="home">
+                <div class="banner">
+                    <div class="image">
+                        <h1>Fusce vitae nibh quis diam fermentum</h1>
+                        <h2>Etiam adipiscing ultricies commodo.</h2>
+                    </div>
+                    <div class="row navigation">
+                        <div class="col-md-6"><a href="#"><div class="icon">1</div>Lorem Ipsum Dolop</a></div>
+                        <div class="col-md-6"><a href="#"><div class="icon">2</div>Ultricies Pellentesque</a></div>
+                        <div class="col-md-6"><a href="#"><div class="icon">3</div>Aliquam ipsum</a></div>
+                        <div class="col-md-6"><a href="#"><div class="icon">4</div>Nullam sed mauris ut</a></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>About whitesquare</h2>
+                            </div>
+                            <div class="content">
+                                <img src="img/about.png" class="thumbnail" alt="About whitesquare">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean augue arcu, convallis ac vulputate vitae, mollis non lectus. Donec hendrerit lacus ac massa ornare hendrerit sagittis lacus tempor. Vivamus et dui et neque accumsan varius et ut erat. Enean augue arcu, convallis ac ultrices.</p>
+                                <span><a href="/about/">Read more</a></span>
+                            </div>
+                            <div class="clear"></div>
+                        </section>
+                    </div>
+                    <div class="col-md-12">
+                        <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>A word from our ceo</h2>
+                            </div>
+                            <div class="content">
+                                <img src="img/about.png" class="thumbnail" alt="A word from our ceo">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean augue arcu, convallis ac vulputate vitae, mollis non lectus. Donec hendrerit lacus ac massa ornare hendrerit sagittis lacus tempor. Vivamus et dui et neque accumsan varius et ut erat. Enean augue arcu, convallis ac.</p>
+                                <span>Yane Naumoski, CEO</span>
+                            </div>
+                            <div class="clear"></div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>Services</h2>
+                            </div>
+                            <div class="content">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean augue arcu, convallis ac vulputate vitae, mollis non lectus. Donec hendrerit lacus ac massa ornare hendrerit sagittis lacus tempor. Vivamus et dui et neque accumsan varius et ut erat. Enean augue arcu, convallis ac ultrices.</p>
+                                <span><a href="/more/">Read More</a></span>
+                            </div>
+                            <div class="clear"></div>
+                        </section>
+                    </div>
+                    <div class="col-md-8">
+                       <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>Our Teams</h2>
+                            </div>
+                            <div class="content">
+                                <img src="img/team.png" class="thumbnail" alt="Our team">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="content">
+                                <img src="img/team.png" class="thumbnail" alt="Our team">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="content">
+                                <img src="img/team.png" class="thumbnail" alt="Our team">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et</p>
+                            </div>
+                            <div class="clear"></div>
+                        </section>
+                    </div>
+                    <div class="col-md-8">
+                        <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>27/7/365 support</h2>
+                            </div>
+                            <div class="content">
+                                <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean augue arcu, convallis ac vulputate vitae, mollis non lectus. Donec hendrerit lacus ac massa ornare hendrerit sagittis lacus tempor. Vivamus et dui et neque accumsan varius et ut erat. Enean augue arcu, convallis ac ultrices.</p>
+                                <span><a href="/more/">Read more</a></span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-24">
+                        <section class="section-sm">
+                            <div class="heading">
+                                <div class="square"></div>
+                                <h2>Our clients</h2>
+                            </div>
+                            <div class="clientImg">
+                                <div><img src="img/client1.png" alt="Client 1"></div>
+                                <div><img src="img/client2.png" alt="Client 2"></div>
+                                <div><img src="img/client3.png" alt="Client 3"></div>
+                                <div><img src="img/client4.png" alt="Client 4"></div>
+                                <div><img src="img/client5.png" alt="Client 5"></div>
+                                <div><img src="img/client6.png" alt="Client 6"></div>
+                                <div><img src="img/client7.png" alt="Client 7"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </script>
+        <script type="text/template" id="about">
+                <div class="heading">
+                    <h1>About us</h1>
+                </div>
+                <div class="row">
+                    <aside  class="col-md-7">
+                       <div id="accordion" class="menu">
+                        <h3>LOREM IPSUM</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        <h3>DONEC TINCIDUNT LAOREET</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        <h3>VESTIBULUM ELIT</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        <h3>ETIAM PHARETRA</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        <h3>PHASELLUS PLACERAT</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        <h3>CRAS ET NISI VITAE ODIO</h3>
+                        <div>
+                            <ul class="submenu list-group">
+                                <li class="list-group-item"><a href="#!/sub1">Lorem ipsum submenu 1</a></li>
+                                <li class="list-group-item"><a href="#!/sub2">Lorem ipsum submenu 2</a></li>
+                                <li class="list-group-item"><a href="#!/sub3">Lorem ipsum submenu 3</a></li>
+                                <li class="list-group-item"><a href="#!/sub4">Lorem ipsum submenu 4</a></li>
+                            </ul>
+                        </div>
+                        </div>
+                       <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Our officies</h3>
+                            </div>
+                            <div class="panel-body">
+                                <img src="img/our%20officies.png" alt="Our officies">
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-md-17"> 
+                        <div class="jumbotron">
+                           <blockquote>
+                               <p> “Quisque in enim velit, at dignissim est. nulla ul corper, dolor ac pellentesque placerat, justo tellus gravida erat, vel porttitor libero erat.”</p>
+                               <small>John Doe, Lorem Ipsum</small>
+                           </blockquote>
+                        </div>
+                        <section class="section-lg">
+                            <article>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non neque ac sem accumsan rhoncus ut ut turpis. In hac habitasse platea dictumst. Proin eget nisi erat, et feugiat arcu. Duis semper porttitor lectus, ac pharetra erat imperdiet nec. Morbi interdum felis nulla. Aenean eros orci, pellentesque sed egestas vitae, auctor aliquam nisi. Nulla nec libero eget sem rutrum iaculis. Quisque in enim velit, at dignissim est. Nulla ullamcorper, dolor ac pellentesque placerat, justo tellus gravida erat, vel porttitor libero erat condimentum metus. Donec sodales aliquam orci id suscipit. Proin sed risus sit amet massa ultrices laoreet quis a erat. Aliquam et metus id erat vulputate egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                               <p>Donec vel nisl nibh. Aenean quam tortor, tempus sit amet mattis dapibus, egestas tempor dui. Duis vestibulum imperdiet risus pretium pretium. Nunc vitae porta ligula. Vestibulum sit amet nulla quam. Aenean lacinia, ante vitae sodales sagittis, leo felis bibendum neque, mattis sagittis neque urna vel magna. Sed at sem vitae lorem blandit feugiat.</p>
+                               <p>Donec vel orci purus, ut ornare orci. Aenean rutrum pellentesque quam. Quisque gravida adipiscing augue, eget commodo augue egestas varius. Integer volutpat, tellus porta tincidunt sodales, lacus est tempus odio, fringilla blandit tortor lectus ut sem. Pellentesque nec sem lacus, sit amet consequat neque. Etiam varius urna quis arcu cursus in consectetur dui tincidunt. Quisque arcu orci, lacinia eget pretium vel, iaculis pellentesque nibh. Etiam cursus lacus eget neque viverra vestibulum. Aliquam erat volutpat. Duis pulvinar tellus ut urna facilisis mollis. Maecenas ac pharetra dui. Pellentesque neque ante, luctus eget congue eget, rhoncus vel mauris. Duis nisi magna, aliquet a convallis non, venenatis at nisl. Nunc at quam eu magna malesuada dignissim. Duis bibendum iaculis felis, eu venenatis risus sodales non. In ligula mi, faucibus eu tristique sed, vulputate rutrum dolor.</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img src="img/about-1.png" alt="about 1" class="thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="image">
+                                            <img src="img/about-2.png" alt="about 1" class="thumbnail">
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                        <section class="section-lg">
+                            <div class="header">
+                                <h2>Our Team</h2> 
+                            </div>
+                            <article>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="John Doe" class="thumbnail">
+                                            <p>John Doe</p>
+                                            <span>ceo</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Saundra Pittsley" class="thumbnail">
+                                               <p>Saundra Pittsley</p>
+                                               <span>team lead</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Julio Simser" class="thumbnail">
+                                            <p>Julio Simser</p>
+                                            <span>senior developer</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Margery Venuti" class="thumbnail">
+                                            <p>Margery Venuti</p>
+                                            <span>senior developer</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Fernando Tondrea" class="thumbnail">
+                                            <p>Fernando Tondrea</p>
+                                            <span>developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Ericka Nobriga" class="thumbnail">
+                                            <p>Ericka Nobriga</p>
+                                            <span>art director</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Cody Rousselle" class="thumbnail">
+                                            <p>Cody Rousselle</p>
+                                            <span>senior ui designe</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Erik Wollman" class="thumbnail">
+                                            <p>Erik Wollman</p>
+                                            <span>senior ui designer</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Dona Shoff" class="thumbnail">
+                                            <p>Dona Shoff</p>
+                                            <span>ui designer</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="image-sm">
+                                            <img src="img/us.png" alt="Darryl Brunton" class="thumbnail">
+                                            <p>Darryl Brunton</p>
+                                            <span>ui designer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+                </div>
+</script>
+        <script type="text/template" id="gismap">
+            <div class="row">
+                <div class="col-md-6">
+                    <section class="section-lg">
+                        <div class="header">
+                            <h2>2gis</h2>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-18">
+                    <div id="map"></div>
+                </div>
+            </div>
+            
+        </script>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 twitter">
+                        <h3>Twitter feed</h3>
+                        <time datetime="2012-10-23"><a hred="#">23 oct</a></time>
+                        <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean aug</p>
+                    </div>
+                    <div class="col-md-4 sitemap">
+                        <h3>Site map</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="/home/">Home</a>
+                                <a href="/about/">About</a>
+                                <a href="/services/">Services</a>
+                            </div>
+                            <div class="col-md-12">
+                                <a href="/partners/">Partners</a>
+                                <a href="/support/">Support</a>
+                                <a href="/contact/">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 social">
+                        <h3>Social networks</h3>
+                        <div>
+                            <a href="http://twitter.com/" class="socialImgBg twitter"></a>
+                            <a href="http://facebook.com/" class="socialImgBg facebook"></a>
+                            <a href="http://google.com/" class="socialImgBg google"></a>
+                        </div>
+                        <div>
+                            <a href="http://vimeo.com/" class="socialImgSm vimeo"></a>
+                            <a href="http://youtube.com/" class="socialImgSm youtube"></a>
+                            <a href="http://flickr.com/" class="socialImgSm flickr"></a>
+                            <a href="http://instagram.com/" class="socialImgSm instargam"></a>
+                            <a href="/rss/" class="socialImgSm rss"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-2 footerlogo">
+                        <a href="/homepage/"><img src="img/footerlogo.png"></a>
+                        <p>Copyright &copy; 2012 Whitesquare. A <a href="picklab">picklab</a> creation.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
