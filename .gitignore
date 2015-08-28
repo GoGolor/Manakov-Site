@@ -1,3 +1,5 @@
+*.gitignore
 *.less
 Manakov-Site/
 bootstrap/
+css/variables.css
