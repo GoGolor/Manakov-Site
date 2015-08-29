@@ -1,6 +1,10 @@
 $(function () {
     var Views = {};
-    
+    function accordion() {
+        $( "#accordion" ).accordion({
+          collapsible: true
+        });
+    };
     var Main = Backbone.View.extend({
         el: $("#main"),
         template: function(pagename){
@@ -53,9 +57,11 @@ $(function () {
         },
         projects: function () {
             Views.main.render("projects");
+            accordion();
         },
         about: function () {
             Views.main.render("about");
+            accordion();
         },
         map: function () {
             Views.main.render("map");
