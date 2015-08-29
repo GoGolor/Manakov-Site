@@ -1,42 +1,17 @@
 $(function () {
     var Views = {};
     
-    var Home = Backbone.View.extend({
+    var Main = Backbone.View.extend({
         el: $("#main"),
-        template: _.template($('#home').html()),  
-        render: function () {
-            $(this.el).html(this.template());
-        }
-    });
-    var Projects = Backbone.View.extend({
-        el: $("#main"),
-        template: _.template($('#projects').html()),
-        render: function () {
-            $(this.el).html(this.template());
-            $( "#accordion" ).accordion({
-                collapsible: true
-            });
-        }
-    });
-    var About = Backbone.View.extend({
-        el: $("#main"),
-        template: _.template($('#about').html()),
-        render: function () {
-            $(this.el).html(this.template());
-            $( "#accordion" ).accordion({
-                collapsible: true
-            });
-        }
-    });
-    var Map = Backbone.View.extend({
-        el: $("#main"),
-        template: _.template($('#map').html()),
-        render: function () {
-            $(this.el).html(this.template());
+        template: function(pagename){
+            return _.template($("#"+pagename).html());
+        },
+        render: function (pagename) {
+            $(this.el).html(this.template(pagename));
         }
     });
     var MapBox = Backbone.View.extend({
-        render1: function(){
+        google: function(){
             var haightAshbury = new google.maps.LatLng(55.05662407, 82.88906931);
             var mapOptions = {
                 zoom: 17,//масштаб
@@ -45,19 +20,19 @@ $(function () {
             };
             map = new google.maps.Map(document.getElementById("mapbox"), mapOptions);
         },
-        render2: function(){
-            var map = new ymaps.Map("mapbox", {
-                center: [55.05662407, 82.88906931], 
-                zoom: 17
-            });
+        yandex: function(){
+            ymaps.ready(init);
+            function init(){
+                var map = new ymaps.Map("mapbox", {
+                    center: [55.05662407, 82.88906931], 
+                    zoom: 17
+                });
+            }
         }
     });
     
     Views = {
-        home: new Home(),
-        projects: new Projects(),
-        about: new About(),
-        map: new Map(),
+        main: new Main(),
         mapbox: new MapBox()
     };
     
@@ -74,22 +49,24 @@ $(function () {
         },
         
         home: function () {
-            Views.home.render();
+            Views.main.render("home");
         },
         projects: function () {
-            Views.projects.render();
+            Views.main.render("projects");
         },
         about: function () {
-            Views.about.render();
+            Views.main.render("about");
         },
         map: function () {
-            Views.map.render();
+            Views.main.render("map");
         },
         mapgoogle: function(){
-            Views.mapbox.render1();
+            Views.main.render("map");
+            Views.mapbox.google();
         },
         mapyandex: function(){
-            Views.mapbox.render2();
+            Views.main.render("map");
+            Views.mapbox.yandex();
         }
     });
     var controller = new Controller();
