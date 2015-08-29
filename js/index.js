@@ -28,16 +28,27 @@ $(function () {
             });
         }
     });
-    var Gismap = Backbone.View.extend({
+    var Map = Backbone.View.extend({
         el: $("#main"),
-        template: _.template($('#gismap').html()),
+        template: _.template($('#map').html()),
         render: function () {
             $(this.el).html(this.template());
-            DG.then(function(){
-                DG.map('map', {
-                    center: [55.05662407, 82.88906931],
-                    zoom: 20
-                });
+        }
+    });
+    var MapBox = Backbone.View.extend({
+        render1: function(){
+            var haightAshbury = new google.maps.LatLng(55.05662407, 82.88906931);
+            var mapOptions = {
+                zoom: 17,//масштаб
+                center: haightAshbury,//позиционируем карту на заданые координаты
+                mapTypeId: google.maps.MapTypeId.TERRAIN//задаем тип карты
+            };
+            map = new google.maps.Map(document.getElementById("mapbox"), mapOptions);
+        },
+        render2: function(){
+            var map = new ymaps.Map("mapbox", {
+                center: [55.05662407, 82.88906931], 
+                zoom: 17
             });
         }
     });
@@ -46,7 +57,8 @@ $(function () {
         home: new Home(),
         projects: new Projects(),
         about: new About(),
-        gismap: new Gismap()
+        map: new Map(),
+        mapbox: new MapBox()
     };
     
     
@@ -56,7 +68,9 @@ $(function () {
             "!/": "home",
             "!/projects": "projects",
             "!/about": "about",
-            "!/map": "gismap"
+            "!/map": "map",
+            "!/map/google": "mapgoogle",
+            "!/map/yandex": "mapyandex"
         },
         
         home: function () {
@@ -68,8 +82,14 @@ $(function () {
         about: function () {
             Views.about.render();
         },
-        gismap: function () {
-            Views.gismap.render();
+        map: function () {
+            Views.map.render();
+        },
+        mapgoogle: function(){
+            Views.mapbox.render1();
+        },
+        mapyandex: function(){
+            Views.mapbox.render2();
         }
     });
     var controller = new Controller();
