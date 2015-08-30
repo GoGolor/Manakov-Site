@@ -47,9 +47,10 @@ $(function () {
             "!/": "home",
             "!/projects": "projects",
             "!/about": "about",
-            "!/map": "map",
-            "!/map/google": "mapgoogle",
-            "!/map/yandex": "mapyandex"
+            "!/gallery": "gallery",
+            "!/contacts": "contacts",
+            "!/contacts/google": "mapgoogle",
+            "!/contacts/yandex": "mapyandex"
         },
         
         home: function () {
@@ -63,15 +64,19 @@ $(function () {
             Views.main.render("about");
             accordion();
         },
-        map: function () {
-            Views.main.render("map");
+        gallery: function(){
+            Views.main.render("gallery");
+            $('.carousel').carousel();
+        },
+        contacts: function () {
+            Views.main.render("contacts");
         },
         mapgoogle: function(){
-            Views.main.render("map");
+            Views.main.render("contacts");
             Views.mapbox.google();
         },
         mapyandex: function(){
-            Views.main.render("map");
+            Views.main.render("contacts");
             Views.mapbox.yandex();
         }
     });
