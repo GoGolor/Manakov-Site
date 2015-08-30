@@ -26,13 +26,19 @@ $(function () {
         $('.carousel').carousel();
         
     }
+
     var Main = Backbone.View.extend({
         el: $("#main"),
-        template: function(pagename){
-            return _.template($("#"+pagename).html());
+        templates: {
+            "home": _.template($("#home").html()),
+            "about": _.template($("#about").html()),
+            "projects": _.template($("#projects").html()),
+            "gallery": _.template($("#gallery").html()),
+            "contacts": _.template($("#contacts").html())
         },
         render: function (pagename) {
-            $(this.el).html(this.template(pagename));
+            $(this.el).html(this.templates[pagename]);
+            if(pagename=="gallery"){Views.photobox.render();}
         }
     });
     var MapBox = Backbone.View.extend({
@@ -55,10 +61,16 @@ $(function () {
             }
         }
     });
-    
+    var PhotoBox = Backbone.View.extend({
+        template: _.template($("#carousel").html()),
+        render: function(){
+            $("#photo").html(this.template());
+        }
+    });
     Views = {
         main: new Main(),
-        mapbox: new MapBox()
+        mapbox: new MapBox(),
+        photobox: new PhotoBox()
     };
     
     
