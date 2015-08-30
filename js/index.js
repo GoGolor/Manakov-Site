@@ -5,6 +5,27 @@ $(function () {
           collapsible: true
         });
     };
+    function carouselInit(){ 
+        $.ajax({
+            url: "singapore.xml",
+            cache: false,
+            dataType: "xml",
+            success: function(xml){
+                var i=0;
+                $(xml).find("item").each(function(){
+                    var slide = '<div class="item"><img src="'+$(this).find("url").text()+'"  alt="'+$(this).find("description").text()+'"></div>';
+                    var indicator = '<li data-target="#carousel-example-generic" data-slide-to="'+i+'"></li>';
+                    $(".carousel-inner").append(slide);
+                    $(".carousel-indicators").append(indicator);
+                    i=i+1;
+                });
+                $(".carousel-inner .item:first-child").addClass("active");
+                $(".carousel-indicators li:first-child").addClass("active");
+            },
+        });
+        $('.carousel').carousel();
+        
+    }
     var Main = Backbone.View.extend({
         el: $("#main"),
         template: function(pagename){
@@ -66,7 +87,7 @@ $(function () {
         },
         gallery: function(){
             Views.main.render("gallery");
-            $('.carousel').carousel();
+            carouselInit();
         },
         contacts: function () {
             Views.main.render("contacts");
